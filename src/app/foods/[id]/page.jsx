@@ -23,17 +23,6 @@ const page = async ({ params }) => {
     );
   }
 
-  // YouTube সাধারণ লিংককে Embed লিংকে রূপান্তর করার ফাংশন
-  const getEmbedUrl = (url) => {
-    if (!url) return null;
-    const regExp =
-      /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
-    const match = url.match(regExp);
-    return match && match[2].length === 11
-      ? `https://www.youtube.com/embed/${match[2]}`
-      : url;
-  };
-
   return (
     <div className="container mx-auto px-4 py-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 bg-white p-6 rounded-3xl shadow-xl">
