@@ -1,7 +1,8 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Poppins, Roboto, Roboto_Condensed, Roboto_Serif } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import CartProvider from "@/context/CartProvider";
+import Image from "next/image";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -10,6 +11,11 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const poppins = Poppins({
+  weight: ["400", "500", "700"],
   subsets: ["latin"],
 });
 
@@ -24,15 +30,20 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${poppins.className} antialiased`}>
         <header className="px-5 flex items-center justify-between gap-5 bg-stone-700">
           <Link href={"/"}>
-            <img src="/logo.png" alt="" className="w-[120px] " />
+            {/* <img src="/logo.png" alt="" className="w-[120px] " /> */}
+            <Image
+              width={120}
+              height={30}
+              src="/logo.png"
+              alt=""
+              className=""></Image>
           </Link>
 
           <div className="space-x-5">
-            <Link className="btn" href={"/foods"}>
+            <Link prefetch={false} className="btn" href={"/foods"}>
               Foods
             </Link>
             <Link className="btn" href={"/reviews"}>

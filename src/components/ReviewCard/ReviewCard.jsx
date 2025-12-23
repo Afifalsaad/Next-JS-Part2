@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 const ReviewCard = ({ reviewData }) => {
@@ -12,11 +13,17 @@ const ReviewCard = ({ reviewData }) => {
   return (
     <div className="max-w-md bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
       <div className="flex items-center gap-4 mb-4">
-        <img
+        {/* <img
           src={photo}
           alt={user}
           className="w-12 h-12 rounded-full border-2 border-orange-100 object-cover"
-        />
+        /> */}
+        <Image
+          width={48}
+          height={48}
+          src={photo}
+          alt={user}
+          className="w-12 h-12 rounded-full border-2 border-orange-100 object-cover"></Image>
         <div>
           <h4 className="font-bold text-gray-800">{user}</h4>
           <p className="text-xs text-gray-400">{formattedDate}</p>
