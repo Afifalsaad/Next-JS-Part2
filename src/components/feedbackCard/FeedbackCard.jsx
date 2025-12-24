@@ -1,14 +1,12 @@
-"use client";
 import React from "react";
 
 const FeedbackCard = ({ feedback, onUpdate, onDelete }) => {
   const { _id, message, date } = feedback;
 
-  const formattedDate = new Date(date).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
+  const formattedDate =
+    new Date(date).toLocaleDateString("en-GB") +
+    " , " +
+    new Date(date).toLocaleTimeString("en-GB");
 
   return (
     <div className="flex items-center justify-center">
@@ -23,12 +21,12 @@ const FeedbackCard = ({ feedback, onUpdate, onDelete }) => {
 
         <div className="flex gap-3">
           <button
-            onClick={() => onUpdate(_id)}
+            // onClick={() => onUpdate(_id)}
             className="flex-1 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 transition-colors">
             Update
           </button>
           <button
-            onClick={() => onDelete(_id)}
+            // onClick={() => onDelete(_id)}
             className="flex-1 px-4 py-2 text-sm font-medium text-red-600 bg-red-50 border border-red-200 rounded-md hover:bg-red-100 transition-colors">
             Delete
           </button>

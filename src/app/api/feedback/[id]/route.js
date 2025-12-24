@@ -1,4 +1,4 @@
-import { connect } from "@/app/lib/DBConnect";
+import { connect } from "@/lib/DBConnect";
 import { feedback } from "../../route";
 import { ObjectId } from "mongodb";
 
